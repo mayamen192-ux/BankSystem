@@ -8,6 +8,8 @@
             string[] accounts = new string[100];
             double[] balances = new double[100];
             int LastAccountIndex = -1;
+            String storedAccountNumber = "saving 3456";
+            double storedBalance = 500;
             while (true)
             {
                 Console.WriteLine("Welcome to the Bank System");
@@ -37,12 +39,43 @@
                         LastAccountIndex++;
                         break;
                     case 2:
+                        //Deposit Money
+
                         break;
 
 
 
                     case 3:
-                        break;
+                        //Withdraw Money
+                        Console.WriteLine("Enter amount to withdraw:");
+                        balances[0] = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter your account number:");
+                        accounts[0]= Console.ReadLine();
+
+                        if (accounts[0] == storedAccountNumber)
+                        {
+                            if (balances[0] <= storedBalance)
+                            {
+                                storedBalance -= balances[0];
+                                Console.WriteLine("Please collect your cash:");
+                                Console.WriteLine("Remaining balance:" + storedBalance);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Insufficient balance");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invaild account number");
+                        }
+
+
+                
+
+
+
+                break;
                     case 4:
                         break;
                     case 5:

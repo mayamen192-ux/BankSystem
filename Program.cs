@@ -6,10 +6,28 @@
         {
             string[] owners = new string[100];
             string[] accounts = new string[100];
+            string[] accounts2 = new string[100];
             double[] balances = new double[100];
+
+
+
+
             int LastAccountIndex = -1;
-            String storedAccountNumber = "saving 3456";
-            double storedBalance = 500;
+
+            owners[0] = "Alice";
+            accounts[0] = "ACC0";
+            balances[0] = 1000;
+            LastAccountIndex++;
+
+            owners[1] = "Bob";
+            accounts[1] = "ACC1";
+            balances[1] = 500;
+            LastAccountIndex++;
+            //String storedAccountNumber = "saving 3456";//sender account
+            //double storedBalance = 500;
+            //String storedAccountNumber1 = "saving 12345";//reciever account
+            //double storedBalance2 = 500;
+            //int i = 0;
             while (true)
             {
                 Console.WriteLine("Welcome to the Bank System");
@@ -40,46 +58,129 @@
                         break;
                     case 2:
                         //Deposit Money
+                        //input 
+                        Console.Write("Enter account number: ");
+                        string accNumber = Console.ReadLine();
+                        Console.Write("Enter deposit amount: ");
+                        double depositAmount = double.Parse(Console.ReadLine());
 
-                        break;
+
+                        //processing
+                        bool accountFound = false;
+
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if (accNumber == accounts[i])
+                            {
+                                balances[i] += depositAmount;
+
+                                accountFound = true;
+                                break;
+                            }
+
+                        }
+
+                        //output
+                        if (accountFound == false)
+                        {
+                            Console.WriteLine("sorry account not found");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Deposit successful!");
+                            //send sms or email notification
+
+                        }
+                    
+
+
+                  break;
 
 
 
                     case 3:
                         //Withdraw Money
-                        Console.WriteLine("Enter amount to withdraw:");
-                        balances[0] = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Enter your account number:");
-                        accounts[0]= Console.ReadLine();
+                        //Console.WriteLine("Enter amount to withdraw:");
+                        //double withdrawAmount = double.Parse(Console.ReadLine());
+                        //Console.WriteLine("Enter your account number:");
+                        //accounts[i] = Console.ReadLine();
 
-                        if (accounts[0] == storedAccountNumber)
-                        {
-                            if (balances[0] <= storedBalance)
-                            {
-                                storedBalance -= balances[0];
-                                Console.WriteLine("Please collect your cash:");
-                                Console.WriteLine("Remaining balance:" + storedBalance);
-                            }
-                            else
-                            {
-                                Console.WriteLine("Insufficient balance");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invaild account number");
-                        }
+                        //if (accounts[i] == storedAccountNumber)
+                        //{
+                        //    if (withdrawAmount <= storedBalance)
+                        //    {
+                        //        storedBalance -= balances[0];
+                        //        Console.WriteLine("Please collect your cash:");
+                        //        Console.WriteLine("Remaining balance:" + storedBalance);
+                        //    }
+                        //    else
+                        //    {
+                        //        Console.WriteLine("Insufficient balance");
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine("Invaild account number");
+                        //}
+                        break;
 
-
-                
-
-
-
-                break;
                     case 4:
+                        //check moey operation
+                        break;
+
+
+
+
                         break;
                     case 5:
-                        break;
+                        //trasfar operation
+                        //Console.WriteLine("Enter a sender account:");
+                        //accounts[i] = Console.ReadLine();
+                        //Console.WriteLine("Enter a reciever account:");
+                        //accounts2[i] = Console.ReadLine();
+                        //Console.WriteLine("Enter a mount that you want to send:");
+                        //double amount2=double.Parse(Console.ReadLine());
+
+
+                        //if (accounts[i] == storedAccountNumber)
+                        //{
+                        //    if (accounts2[i] == storedAccountNumber1)
+                        //    {
+                        //        if (storedBalance >= amount2)
+                        //        {
+                        //            storedBalance -= amount2;
+                        //            storedBalance2 += amount2;
+                        //            Console.WriteLine(" reciever has recieved additional balance:" + storedBalance2);
+                        //            Console.WriteLine(" sender done sending  balance:" + storedBalance);
+                        //        }
+
+
+                        //        else
+                        //        {
+                        //            Console.WriteLine("Insufficient balance.");
+                        //        }
+
+
+
+                        //    }
+                        //    else
+                        //    {
+
+
+
+                        //        Console.WriteLine("Invaild aacount number");
+
+                        //    }
+
+
+                        //    }
+
+
+
+                        
+
+                break;
+                    
 
                     case 6:
                         break;

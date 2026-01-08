@@ -23,11 +23,7 @@
             accounts[1] = "ACC1";
             balances[1] = 500;
             LastAccountIndex++;
-            //String storedAccountNumber = "saving 3456";//sender account
-            //double storedBalance = 500;
-            //String storedAccountNumber1 = "saving 12345";//reciever account
-            //double storedBalance2 = 500;
-            //int i = 0;
+            bool exit = false;
             while (true)
             {
                 Console.WriteLine("Welcome to the Bank System");
@@ -183,11 +179,17 @@
                     
 
                     case 6:
+                        exit=true;
                         break;
 
                     default:
                         Console.WriteLine("Invaild account number ");
                         break;
+                }
+
+                if (exit == true)
+                {
+                    break;
                 }
                 Console.WriteLine("Thank you for using the Bank System, press any key");
                 Console.ReadLine();

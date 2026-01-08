@@ -53,15 +53,12 @@
                         LastAccountIndex++;
                         break;
                     case 2:
-                        //Deposit Money
-                        //input 
                         Console.Write("Enter account number: ");
                         string accNumber = Console.ReadLine();
                         Console.Write("Enter deposit amount: ");
+
                         double depositAmount = double.Parse(Console.ReadLine());
 
-
-                        //processing
                         bool accountFound = false;
 
                         for (int i = 0; i < 100; i++)
@@ -75,59 +72,81 @@
                             }
 
                         }
-
-                        //output
                         if (accountFound == false)
                         {
-                            Console.WriteLine("sorry account not found");
+                            Console.WriteLine("account not found");
                         }
                         else
                         {
-                            Console.WriteLine("Deposit successful!");
-                            //send sms or email notification
-
+                            Console.WriteLine("Deposite succeefuly");
                         }
-                    
-
-
-                  break;
+                        break;
 
 
 
                     case 3:
                         //Withdraw Money
-                        //Console.WriteLine("Enter amount to withdraw:");
-                        //double withdrawAmount = double.Parse(Console.ReadLine());
-                        //Console.WriteLine("Enter your account number:");
-                        //accounts[i] = Console.ReadLine();
 
-                        //if (accounts[i] == storedAccountNumber)
-                        //{
-                        //    if (withdrawAmount <= storedBalance)
-                        //    {
-                        //        storedBalance -= balances[0];
-                        //        Console.WriteLine("Please collect your cash:");
-                        //        Console.WriteLine("Remaining balance:" + storedBalance);
-                        //    }
-                        //    else
-                        //    {
-                        //        Console.WriteLine("Insufficient balance");
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("Invaild account number");
-                        //}
-                        break;
+
+
+                                //if (accounts[i] == storedAccountNumber)
+                                //{
+                                //    if (withdrawAmount <= storedBalance)
+                                //    {
+                                //        storedBalance -= balances[0];
+                                //        Console.WriteLine("Please collect your cash:");
+                                //        Console.WriteLine("Remaining balance:" + storedBalance);
+                                //    }
+                                //    else
+                                //    {
+                                //        Console.WriteLine("Insufficient balance");
+                                //    }
+                                //}
+                                //else
+                                //{
+                                //    Console.WriteLine("Invaild account number");
+                                //}
+                                break;
 
                     case 4:
                         //check moey operation
-                        break;
+                        Console.Write("Enter account number: ");
+                        string accNumber2 = Console.ReadLine();
+
+                        bool accountFound2 = false;
+                        double currentBalance = 0;
+
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if (accNumber2 == accounts[i])
+                            {
+                                currentBalance = balances[i];
+                                accountFound2 = true;
+                               
+
+                                break;
+                            }
+
+                        }
+
+                        //output
+                        if (accountFound2 == false)
+                        {
+                            Console.WriteLine("sorry account not found");
+                        }
+
+                        else
+                        {
+                           
+
+                                Console.WriteLine("Your balance = " + currentBalance);
+                           
+                        }
 
 
 
 
-                        break;
+                            break;
                     case 5:
                         //trasfar operation
                         //Console.WriteLine("Enter a sender account:");
@@ -173,13 +192,13 @@
 
 
 
-                        
 
-                break;
-                    
+
+                        break;
+
 
                     case 6:
-                        exit=true;
+                        exit = true;
                         break;
 
                     default:
@@ -197,5 +216,7 @@
 
             }
         }
-        }
+
+
     }
+}

@@ -95,7 +95,7 @@
 
                         double withdrawAmount = double.Parse(Console.ReadLine());
 
-                        bool accountFound3 = false;
+                        bool accountFound2 = false;
 
                         for (int i = 0; i < 100; i++)
                         {
@@ -103,12 +103,12 @@
                             {
                                 balances[i] -= withdrawAmount;
 
-                                accountFound = true;
+                                accountFound2 = true;
                                 break;
                             }
 
                         }
-                        if (accountFound3 == false)
+                        if (accountFound2 == false)
                         {
                             Console.WriteLine("account not found");
                         }
@@ -116,16 +116,16 @@
                         {
                             Console.WriteLine("withdraw succeefuly");
                         }
-
-
                         break;
+
+                        
 
                     case 4:
                         //check moey operation
                         Console.Write("Enter account number: ");
                         string accNumber3 = Console.ReadLine();
 
-                        bool accountFound2 = false;
+                        bool accountFound3 = false;
                         double currentBalance = 0;
 
                         for (int i = 0; i < 100; i++)
@@ -133,7 +133,7 @@
                             if (accNumber3 == accounts[i])
                             {
                                 currentBalance = balances[i];
-                                accountFound2 = true;
+                                accountFound3 = true;
                                
 
                                 break;
@@ -142,7 +142,7 @@
                         }
 
                         //output
-                        if (accountFound2 == false)
+                        if (accountFound3 == false)
                         {
                             Console.WriteLine("sorry account not found");
                         }
@@ -160,13 +160,64 @@
 
                             break;
                     case 5:
-                       
+                        //transfar monery operation
+                        Console.WriteLine("Enter source account number: ");
+                        String sourceAccNum= Console.ReadLine();
+                        Console.WriteLine("Enter destination account number: ");
+                        String destAccNum = Console.ReadLine();
+                        Console.WriteLine("Enter transfer amount: ");
+                        double transferAmount = double.Parse(Console.ReadLine());
+
+                        bool sourceFound= false;
+                        int sourceBalance = 0;
+                        for(int i = 0; i < 100; i++)
+                        {
+                            if(sourceAccNum == accounts[i])
+                            {
+                                sourceBalance = i;
+                                sourceFound = true;
+                                break;
+
+                            }
+                        }
+                        if(sourceFound == false)
+                        {
+                            Console.WriteLine("source account not found");
+                        }
+                        else
+                        {
+                            bool destinationFound= false;
+                            int destinationBalance = 0;
+                            for(int i = 0;i < 100; i++)
+                            {
+                                if(destAccNum== accounts[i])
+                                {
+                                    destinationBalance = i;
+                                    destinationFound = true;
+                                    break;
+                                }
+                            }
+                            if (destinationFound == false)
+                            {
+                                Console.WriteLine("destination account not found");
+                            }
+                            else
+                            {
+                                if (balances[sourceBalance] >= transferAmount)
+                                {
+                                    balances[sourceBalance]-=transferAmount;
+                                   balances [destinationBalance ]+= transferAmount;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Insufficient balance in soruce account");
+                                }
+                            }
+                        }
 
 
 
-
-
-                        break;
+                            break;
 
 
                     case 6:
